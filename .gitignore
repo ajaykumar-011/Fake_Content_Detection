@@ -1,0 +1,12 @@
+venv/
+__pycache__/
+*.pyc
+.env
+detection_history.json
+.DS_Store
+data/cleaned.csv
+data/combined.csv
+data/processed/improved_dataset.csv
+models/X_train_tfidf.joblib
+data/train.csv
+models/random_forest.joblib
