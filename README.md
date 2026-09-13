@@ -32,7 +32,7 @@ This project analyzes a piece of news or social media text and produces:
 | Visualization            | Plotly                               |
 | Model Persistence        | Joblib                               |
 
-**Model Accuracy:** ~99.58% on held-out test data
+**Model Accuracy:** ~90.58% on held-out test data
 **F1 Score:** ~99.62%
 
 ---
