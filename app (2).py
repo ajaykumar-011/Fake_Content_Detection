@@ -502,9 +502,11 @@ div[class*="st-key-"]::before {
     }
 }
 /* ==================================================
-   OPENING CINEMATIC SPLASH
-   Plays once per page load: a strong 3D entrance +
-   shimmer, then fades out to reveal the dashboard.
+   OPENING SEQUENCE — MECHANICAL ASSEMBLY + SCAN
+   A 4.0s intro: six armor panels fly in and lock into
+   a hex frame, the core snaps in, a verification
+   scanner sweeps through, the title locks into place,
+   then the whole rig dissolves into the dashboard.
    ================================================== */
 
 .intro-splash {
@@ -515,65 +517,164 @@ div[class*="st-key-"]::before {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background:
-        radial-gradient(circle at 50% 45%, #16213E 0%, #0B1120 70%);
-    perspective: 1200px;
-    animation: introExit 0.6s ease-in forwards;
-    animation-delay: 2.1s;
+    background: radial-gradient(circle at 50% 42%, #16213E 0%, #0B1120 72%);
+    perspective: 1400px;
+    overflow: hidden;
+    animation: introExit 0.55s ease-in 3.45s forwards;
 }
-.intro-mark {
-    font-size: 4.2rem;
-    line-height: 1;
-    margin-bottom: 0.6rem;
-    filter: drop-shadow(0 0 0 rgba(201,162,39,0));
-    transform: rotateY(90deg) translateZ(-200px) scale(0.6);
+
+/* ---------- Assembly stage (panels + core) ---------- */
+.assembly-stage {
+    position: relative;
+    width: 220px;
+    height: 220px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform-style: preserve-3d;
+}
+
+.panel {
+    position: absolute;
+    width: 14px;
+    height: 64px;
+    border-radius: 3px;
+    background: linear-gradient(160deg, #E4C45C 0%, #8A6C15 55%, #3A2E08 100%);
+    box-shadow: 0 0 14px rgba(201,162,39,0.5), inset 0 1px 0 rgba(255,255,255,0.4);
     opacity: 0;
-    animation: introMarkIn 0.85s cubic-bezier(0.22,1,0.36,1) 0.05s forwards,
-               introMarkGlow 1.1s ease-in-out 0.9s infinite alternate;
+    animation-timing-function: cubic-bezier(0.17, 0.84, 0.44, 1);
+    animation-fill-mode: forwards;
+    animation-duration: 0.95s;
 }
-@keyframes introMarkIn {
-    0%   { transform: rotateY(90deg) translateZ(-200px) scale(0.6); opacity: 0; }
-    60%  { transform: rotateY(-8deg) translateZ(20px) scale(1.08); opacity: 1; }
-    100% { transform: rotateY(0deg) translateZ(0) scale(1); opacity: 1; }
+.panel-1 { animation-name: panel1; animation-delay: 0.00s; }
+.panel-2 { animation-name: panel2; animation-delay: 0.10s; }
+.panel-3 { animation-name: panel3; animation-delay: 0.20s; }
+.panel-4 { animation-name: panel4; animation-delay: 0.30s; }
+.panel-5 { animation-name: panel5; animation-delay: 0.40s; }
+.panel-6 { animation-name: panel6; animation-delay: 0.50s; }
+
+@keyframes panel1 {
+    0%   { opacity: 0; transform: translate(-480px, -340px) rotate(-120deg) scale(0.4); }
+    75%  { opacity: 1; transform: translate(2px, -78px) rotate(4deg) scale(1.08); }
+    100% { opacity: 1; transform: translate(0, -74px) rotate(0deg) scale(1); }
 }
-@keyframes introMarkGlow {
-    0%   { filter: drop-shadow(0 0 10px rgba(201,162,39,0.35)); }
-    100% { filter: drop-shadow(0 0 32px rgba(201,162,39,0.85)); }
+@keyframes panel2 {
+    0%   { opacity: 0; transform: translate(480px, -300px) rotate(130deg) scale(0.4); }
+    75%  { opacity: 1; transform: translate(66px, -42px) rotate(-56deg) scale(1.08); }
+    100% { opacity: 1; transform: translate(62px, -38px) rotate(-60deg) scale(1); }
 }
+@keyframes panel3 {
+    0%   { opacity: 0; transform: translate(500px, 260px) rotate(-110deg) scale(0.4); }
+    75%  { opacity: 1; transform: translate(66px, 40px) rotate(-124deg) scale(1.08); }
+    100% { opacity: 1; transform: translate(62px, 36px) rotate(-120deg) scale(1); }
+}
+@keyframes panel4 {
+    0%   { opacity: 0; transform: translate(0, 420px) rotate(90deg) scale(0.4); }
+    75%  { opacity: 1; transform: translate(2px, 80px) rotate(184deg) scale(1.08); }
+    100% { opacity: 1; transform: translate(0, 76px) rotate(180deg) scale(1); }
+}
+@keyframes panel5 {
+    0%   { opacity: 0; transform: translate(-500px, 260px) rotate(110deg) scale(0.4); }
+    75%  { opacity: 1; transform: translate(-66px, 40px) rotate(124deg) scale(1.08); }
+    100% { opacity: 1; transform: translate(-62px, 36px) rotate(120deg) scale(1); }
+}
+@keyframes panel6 {
+    0%   { opacity: 0; transform: translate(-480px, -300px) rotate(-130deg) scale(0.4); }
+    75%  { opacity: 1; transform: translate(-66px, -42px) rotate(56deg) scale(1.08); }
+    100% { opacity: 1; transform: translate(-62px, -38px) rotate(60deg) scale(1); }
+}
+
+/* Mechanical snap pulse once the ring is fully assembled */
+.assembly-stage::before {
+    content: "";
+    position: absolute;
+    width: 170px; height: 170px;
+    border-radius: 50%;
+    border: 1px solid rgba(201,162,39,0.5);
+    opacity: 0;
+    animation: ringFlash 0.5s ease-out 1.05s forwards;
+}
+@keyframes ringFlash {
+    0%   { opacity: 0.9; transform: scale(0.7); box-shadow: 0 0 0 rgba(201,162,39,0.8); }
+    100% { opacity: 0; transform: scale(1.35); box-shadow: 0 0 40px rgba(201,162,39,0); }
+}
+
+/* ---------- Core icon locks in after the panels land ---------- */
+.core-icon {
+    position: relative;
+    z-index: 2;
+    font-size: 3.1rem;
+    line-height: 1;
+    opacity: 0;
+    transform: scale(0.3) rotateY(180deg);
+    animation: coreSnap 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) 1.05s forwards,
+               coreGlow 1.1s ease-in-out 1.6s infinite alternate;
+}
+@keyframes coreSnap {
+    0%   { opacity: 0; transform: scale(0.3) rotateY(180deg); }
+    60%  { opacity: 1; transform: scale(1.18) rotateY(0deg); }
+    100% { opacity: 1; transform: scale(1) rotateY(0deg); }
+}
+@keyframes coreGlow {
+    0%   { filter: drop-shadow(0 0 10px rgba(201,162,39,0.4)); }
+    100% { filter: drop-shadow(0 0 30px rgba(127,216,208,0.75)); }
+}
+
+/* ---------- Verification scanner sweep ---------- */
+.scan-line {
+    position: absolute;
+    top: -100%;
+    left: -10%;
+    width: 120%;
+    height: 3px;
+    background: linear-gradient(90deg, transparent 0%, #7FD8D0 20%, #FFFFFF 50%, #7FD8D0 80%, transparent 100%);
+    box-shadow: 0 0 16px 2px rgba(127,216,208,0.75);
+    opacity: 0;
+    animation: scanSweep 0.85s cubic-bezier(0.45, 0, 0.55, 1) 1.5s forwards;
+}
+@keyframes scanSweep {
+    0%   { top: -5%;  opacity: 1; }
+    92%  { top: 100%; opacity: 1; }
+    100% { top: 100%; opacity: 0; }
+}
+
+/* ---------- Title + readout ---------- */
 .intro-title {
     font-family: 'Playfair Display', serif;
     font-weight: 700;
     font-size: 2.1rem;
     color: #FFFFFF;
+    margin-top: 1.5rem;
     opacity: 0;
-    transform: translateY(18px) rotateX(35deg);
-    transform-origin: top center;
-    animation: introTextIn 0.7s cubic-bezier(0.22,1,0.36,1) 0.35s forwards;
-    position: relative;
-    overflow: hidden;
+    letter-spacing: 0.01em;
+    transform: translateY(14px) scale(0.96);
+    animation: titleLock 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) 2.15s forwards;
 }
-.intro-title::after {
-    content: "";
-    position: absolute;
-    top: 0; left: -70%;
-    width: 40%; height: 100%;
-    background: linear-gradient(100deg, transparent 0%, rgba(255,255,255,0.7) 50%, transparent 100%);
-    transform: skewX(-18deg);
-    animation: lightSweep 1.4s ease-in-out 1.0s 2;
+@keyframes titleLock {
+    0%   { opacity: 0; transform: translateY(14px) scale(0.96); }
+    100% { opacity: 1; transform: translateY(0) scale(1); }
 }
-@keyframes introTextIn {
-    0%   { opacity: 0; transform: translateY(18px) rotateX(35deg); }
-    100% { opacity: 1; transform: translateY(0) rotateX(0deg); }
-}
+
 .intro-sub {
     font-family: 'Inter', sans-serif;
-    font-size: 0.95rem;
-    letter-spacing: 0.04em;
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.18em;
     color: var(--gold);
     opacity: 0;
-    margin-top: 0.5rem;
-    animation: introTextIn 0.7s cubic-bezier(0.22,1,0.36,1) 0.55s forwards;
+    margin-top: 0.55rem;
+    animation: readoutIn 0.2s linear 2.5s forwards,
+               readoutFlicker 0.18s linear 2.7s 3;
 }
+@keyframes readoutIn {
+    0%   { opacity: 0; }
+    100% { opacity: 1; }
+}
+@keyframes readoutFlicker {
+    0%, 100% { opacity: 1; }
+    45%      { opacity: 0.25; }
+}
+
 @keyframes introExit {
     0%   { opacity: 1; transform: scale(1); filter: blur(0px); }
     100% { opacity: 0; transform: scale(1.06); filter: blur(6px); visibility: hidden; }
@@ -582,7 +683,7 @@ div[class*="st-key-"]::before {
 /* Main dashboard content stays hidden, then reveals right as the splash exits */
 [data-testid="stAppViewContainer"], section[data-testid="stSidebar"] {
     opacity: 0;
-    animation: mainReveal 0.7s ease-out 2.15s forwards;
+    animation: mainReveal 0.7s ease-out 3.5s forwards;
 }
 @keyframes mainReveal {
     0%   { opacity: 0; transform: translateY(8px); }
@@ -601,9 +702,18 @@ div[class*="st-key-"]::before {
 
 st.markdown("""
 <div class="intro-splash">
-    <div class="intro-mark">🔎</div>
+    <div class="assembly-stage">
+        <div class="panel panel-1"></div>
+        <div class="panel panel-2"></div>
+        <div class="panel panel-3"></div>
+        <div class="panel panel-4"></div>
+        <div class="panel panel-5"></div>
+        <div class="panel panel-6"></div>
+        <div class="scan-line"></div>
+        <div class="core-icon">🔎</div>
+    </div>
     <div class="intro-title">Fake Content Detection</div>
-    <div class="intro-sub">EVIDENCE-VERIFIED INTELLIGENCE</div>
+    <div class="intro-sub">VERIFICATION PROTOCOL · ACTIVE</div>
 </div>
 """, unsafe_allow_html=True)
 

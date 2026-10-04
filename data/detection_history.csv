@@ -14,3 +14,54 @@ timestamp,content,ml_prediction,evidence_status,evidence_score,source_credibilit
 2026-09-08 13:00:51,"NASA's Artemis 2 mission launched earlier this year, sending astronauts Reid Wiseman, Victor Glover, Christina Koch, and Canadian astronaut Jeremy Hansen on a roughly ten-day journey around the Moon and back. It was the first crewed lunar mission since the Apollo program ended in the 1970s. The capsule did not land on the Moon, but the flight tested life-support and navigation systems for future landing missions",FAKE,SUPPORTING,61.7,74.0,LIKELY TRUE,90
 2026-09-13 21:39:29,"In a shocking revelation that mainstream media refuses to cover, insiders claim that world governments have been secretly manipulating the weather for decades using hidden technology. Whistleblowers say the truth is being suppressed to avoid public panic. Share this before it gets deleted!",FAKE,RELEVANT,37.93,50.0,LIKELY FALSE,65
 2026-09-13 21:39:43,"NASA's Artemis 2 mission launched earlier this year, sending astronauts Reid Wiseman, Victor Glover, Christina Koch, and Canadian astronaut Jeremy Hansen on a roughly ten-day journey around the Moon and back. The capsule did not land on the Moon, but the flight tested life-support and navigation systems for future landing missions.",REAL,SUPPORTING,82.05,50.0,LIKELY TRUE,85
+2026-09-24 17:52:52,"""The Reserve Bank of India has permanently suspended all online UPI payment transfers starting midnight tonight due to a major national server migration.""
+",REAL,RELEVANT,38.89,44.0,LIKELY TRUE,65
+2026-09-25 11:04:13,"""The Reserve Bank of India has permanently suspended all online UPI payment transfers starting midnight tonight due to a major national server migration.""
+",REAL,INSUFFICIENT EVIDENCE,0,0,LIKELY TRUE,65
+2026-09-25 11:04:38,"""The Reserve Bank of India has permanently suspended all online UPI payment transfers starting midnight tonight due to a major national server migration.""
+",REAL,RELEVANT,33.33,38.0,LIKELY TRUE,65
+2026-09-25 11:51:27,"NEW YORK - Gloria Steinem, the
+feminist writer and activist who
+helped define the modern women's
+rights movement, died on Wednesday
+at her home in New York City at
+
+the age of 92.",REAL,SUPPORTING,80.0,50.0,LIKELY TRUE,85
+2026-09-25 12:27:02,"CJP's nationwide protest from Oct 2 if
+CEC Gyanesh Kumar doesn't resign:
+Dipke
+
+INDIANEWS | Updated 13m ago",FAKE,SUPPORTING,64.29,51.0,LIKELY FALSE,65
+2026-09-25 12:43:14,"NEW YORK - Gloria Steinem, the
+feminist writer and activist who
+helped define the modern women's
+rights movement, died on Wednesday
+at her home in New York City at
+
+the age of 92.",REAL,SUPPORTING,85.0,65.0,LIKELY TRUE,90
+2026-09-25 15:21:19,"NEW YORK - Gloria Steinem, the
+feminist writer and activist who
+helped define the modern women's
+rights movement, died on Wednesday
+at her home in New York City at
+
+the age of 92.",REAL,SUPPORTING,85.0,59.0,LIKELY TRUE,85
+2026-09-25 21:30:23,"NEW YORK - Gloria Steinem, the
+feminist writer and activist who
+helped define the modern women's
+rights movement, died on Wednesday
+at her home in New York City at
+
+the age of 92.",REAL,INSUFFICIENT EVIDENCE,0,0,LIKELY TRUE,65
+2026-10-04 21:28:29,"Home |/ News / Cities / Delhi
+
+Delhi Police refer three journalists’ sexual
+harassment allegations case against ACP Vivek
+Bhagat to crime branch without FIR
+
+“The police can very well register an FIR and then transfer it
+to the Crime Branch for investigation. But FIR is a must, as
+the allegations are of molestation,” says CJP’s legal affairs
+head Ratna Singh
+
+Updated - October 04,2026 12:47 pm IST - NEW DELHI",REAL,RELEVANT,54.76,51.0,LIKELY TRUE,65
